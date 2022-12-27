@@ -1,0 +1,266 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingVertical="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/plate__light_0"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/activity_training__layout__known_word"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.strizhonovapps.lexicaapp.viewsupport.SegmentedProgressBar
+            android:id="@+id/activity_training__progress_bar__session"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginHorizontal="15dp"
+            app:cornerRadius="2dp"
+            app:dividerColor="@color/light_0"
+            app:dividerWidth="2dp"
+            app:isDividerEnabled="true"
+            app:progressBarBackgroundColor="@color/light_2"
+            app:progressBarColor="@color/accent" />
+
+        <LinearLayout
+            android:id="@+id/activity_training__layout__wordcard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingVertical="50dp"
+            app:layout_constraintBottom_toTopOf="@id/activity_training__layout__known_word"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_training__progress_bar__session">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp">
+
+                <LinearLayout
+                    android:id="@+id/activity_training__layout__wordcard_tags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/activity_training__text_view__word_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/border__word_tag"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:paddingHorizontal="5dp"
+                        android:paddingVertical="1dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/almost_black"
+                        android:textSize="13sp"
+                        tools:ignore="SmallSp" />
+
+                    <TextView
+                        android:id="@+id/activity_training__text_view__word_level"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+                        android:gravity="end"
+                        android:maxLines="1"
+                        android:paddingHorizontal="5dp"
+                        android:paddingVertical="1dp"
+                        android:paddingBottom="5dp"
+                        android:textSize="13sp"
+                        tools:ignore="SmallSp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/activity_training__text_view__word_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/activity_training__layout__wordcard_tags"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/activity_training__relative_layout__word_image"
+                    android:fontFamily="@font/montserrat_thin"
+                    android:textSize="26sp" />
+
+                <TextView
+                    android:id="@+id/activity_training__text_view__word_transcription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/activity_training__text_view__word_name"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/activity_training__relative_layout__word_image"
+                    android:fontFamily="@font/montserrat_thin"
+                    android:textSize="22sp" />
+
+                <RelativeLayout
+                    android:id="@+id/activity_training__relative_layout__word_image"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginStart="10dp">
+
+                    <ImageView
+                        android:id="@+id/activity_training__image_view__word_image"
+                        android:contentDescription="@string/activity_training__description__image"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/activity_training__image_view__word_no_image"
+                        android:background="@drawable/plate__light_1"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:gravity="center"
+                        android:text="@string/activity_training__text_view__no_image" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/activity_training__text_view__word_translation"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="15dp"
+                    android:fontFamily="@font/montserrat_thin"
+                    android:gravity="center"
+                    android:paddingHorizontal="25dp"
+                    android:scrollbars="vertical"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/plate__light_1"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/activity_training__image_view__edit_word"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/selector__from_transparent_to_accent"
+                        android:clickable="true"
+                        android:contentDescription="@string/activity_training__description__modify"
+                        android:focusable="true"
+                        android:paddingVertical="7dp"
+                        android:src="@drawable/ic__edit" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="7dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <ImageView
+                        android:id="@+id/activity_training__image_view__delete_word"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/selector__from_transparent_to_accent"
+                        android:clickable="true"
+                        android:contentDescription="@string/activity_training__description__modify"
+                        android:focusable="true"
+                        android:paddingVertical="5dp"
+                        android:src="@drawable/ic__delete_20" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="7dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <ImageView
+                        android:id="@+id/activity_training__image_view__word_audio"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/selector__from_transparent_to_accent"
+                        android:paddingVertical="5dp"
+                        android:src="@drawable/ic__play" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="7dp"
+                        android:background="@android:color/darker_gray" />
+
+                    <ImageView
+                        android:id="@+id/activity_training__image_view__show_translation"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/selector__from_transparent_to_accent"
+                        android:paddingVertical="5dp"
+                        android:src="@drawable/ic__visibility" />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/activity_training__layout__known_word"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/plate__accent"
+        android:clickable="true"
+        android:contentDescription="@string/activity_training__button__known_word"
+        android:focusable="true"
+        android:padding="10dp"
+        android:paddingEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/activity_training__layout__unknown_word"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/activity_training__button__known_word" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/activity_training__layout__unknown_word"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/plate__accent"
+        android:clickable="true"
+        android:contentDescription="@string/activity_training__button__unknown_word"
+        android:focusable="true"
+        android:padding="10dp"
+        android:paddingStart="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity_training__layout__known_word">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/activity_training__button__unknown_word" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

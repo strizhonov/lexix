@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:openDrawer="start">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp">
+
+                <RelativeLayout
+                        android:id="@+id/fragment_word_list__layout__search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true">
+
+                    <Button
+                            android:id="@+id/fragment_word_list__button__open_drawer"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/ic__menu" />
+
+                    <TextView
+                            android:id="@+id/fragment_word_list__text_view__displayed_words_group"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@id/fragment_word_list__button__open_drawer"
+                            android:paddingVertical="10dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/text_primary"
+                            android:textSize="18sp" />
+
+                    <TextView
+                            android:id="@+id/fragment_word_list__text_view__yellow_dot"
+                            android:layout_width="7dp"
+                            android:layout_height="7dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_toEndOf="@id/fragment_word_list__text_view__displayed_words_group"
+                            android:background="@drawable/other__yellow_dot" />
+
+                    <TextView
+                            android:id="@+id/fragment_word_list__text_view__word_counter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toStartOf="@id/fragment_word_list__button__search"
+                            android:layout_toEndOf="@id/fragment_word_list__text_view__yellow_dot"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="18sp" />
+
+                    <Button
+                            android:id="@+id/fragment_word_list__button__search"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/ic__search"
+                            android:gravity="center_vertical" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:id="@+id/fragment_word_list__layout__shown_search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:visibility="gone">
+
+                    <EditText
+                            android:id="@+id/fragment_word_list__edit_text__search_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@id/fragment_word_list__button__back_from_search"
+                            android:layout_alignParentStart="true"
+                            android:background="@drawable/plate__light_2"
+                            android:hint="@string/fragment_word_list__search"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
+                            android:paddingVertical="10dp"
+                            android:paddingStart="10dp"
+                            android:textSize="18sp" />
+
+                    <Button
+                            android:id="@+id/fragment_word_list__button__back_from_search"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/ic__arrow_right"
+                            android:gravity="center_vertical" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <ListView
+                    android:id="@+id/fragment_word_list__list_view__main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/light_0"
+                    android:divider="@drawable/other__list_divider"
+                    android:dividerHeight="0.2dp"
+                    android:paddingVertical="5dp" />
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/fragment_word_list__text_view__no_words"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/fragment_stats__text_view__empty_list_message"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+        <ProgressBar
+                android:id="@+id/fragment_word_list__progress_bar__on_loading"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:indeterminate="true"
+                android:minWidth="50dp"
+                android:minHeight="50dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fragment_word_list__floating_button__add_word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/fragment_word_list__description__add_word"
+                android:src="@drawable/ic__add_24"
+                app:backgroundTint="@color/accent"
+                app:tint="@color/light_1" />
+    </RelativeLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+            android:id="@+id/fragment_word_list__navigation_view__drawer"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:itemIconTint="@color/text_primary"
+            app:itemTextAppearance="@style/DrawerStyle"
+            app:itemTextColor="@color/text_primary"
+            app:menu="@menu/list_drawer" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

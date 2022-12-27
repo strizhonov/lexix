@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/ic__training"
+        android:title="@string/tabs__training" />
+
+    <item
+        android:icon="@drawable/ic__list"
+        android:title="@string/tabs__word_list" />
+
+    <item
+        android:icon="@drawable/ic__chart"
+        android:title="@string/tabs__stats" />
+
+</menu>

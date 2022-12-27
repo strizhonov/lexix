@@ -1,0 +1,146 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+            android:id="@+id/fragment_pre_training__layout__word_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="25dp"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:paddingHorizontal="15dp"
+            android:paddingTop="15dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:gravity="center"
+                android:text="@string/fragment_pre_training__text_view__words_to_learn"
+                android:textColor="@color/text_primary" />
+
+        <TextView
+                android:id="@+id/fragment_pre_training__text_view__word_count"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/border__circle__accent"
+                android:gravity="center"
+                android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/fragment_pre_training__layout__first_line_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_pre_training__layout__word_count"
+            android:layout_alignParentStart="true"
+            android:orientation="horizontal">
+
+        <Button
+                android:id="@+id/fragment_pre_training__button__from_study"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight=".5"
+                android:background="@drawable/plate__light_1"
+                android:drawableStart="@drawable/ic__study_to_native"
+                android:drawablePadding="15dp"
+                android:gravity="start|center"
+                android:padding="10dp"
+                android:text="@string/fragment_pre_training__button__study_to_native_training"
+                android:textColor="@color/text_primary" />
+
+        <Button
+                android:id="@+id/fragment_pre_training__button__from_native"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_weight=".5"
+                android:background="@drawable/plate__light_1"
+                android:drawableStart="@drawable/ic__native_to_study"
+                android:drawablePadding="15dp"
+                android:gravity="start|center"
+                android:padding="10dp"
+                android:text="@string/fragment_pre_training__button__native_to_study_training"
+                android:textColor="@color/text_primary" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_pre_training__layout__first_line_buttons"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="25dp"
+            android:orientation="horizontal">
+
+        <Button
+                android:id="@+id/fragment_pre_training__button__mixed_mode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/plate__light_1"
+                android:drawableStart="@drawable/ic__mixed"
+                android:drawablePadding="15dp"
+                android:gravity="start|center"
+                android:padding="10dp"
+                android:text="@string/fragment_pre_training__button__mixed_training"
+                android:textColor="@color/text_primary" />
+
+        <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="15dp"
+                android:layout_weight="0.5"
+                android:visibility="invisible" />
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/fragment_pre_training__text_view__no_words_for_now"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/fragment_pre_training__button__start_training"
+            android:layout_marginVertical="15dp"
+            android:gravity="center"
+            android:text="@string/fragment_pre_training__text_view__not_time_to_learn"
+            android:textAlignment="center"
+            android:textColor="@color/text_primary" />
+
+    <Button
+            android:id="@+id/fragment_pre_training__button__start_training"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/plate__accent"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/fragment_pre_training__button__start"
+            android:textColor="@color/text_primary" />
+
+    <TextView
+            android:id="@+id/fragment_pre_training__text_view__no_words_at_all"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/fragment_pre_training__text_view__empty_list_message"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+</RelativeLayout>
+

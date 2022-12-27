@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="7.5dp">
+
+    <ImageView
+            android:id="@+id/view_list_word_item__image_view__word_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="top"
+            android:layout_marginEnd="15dp"
+            android:layout_marginVertical="10dp"
+            android:contentDescription="@string/activity_training__description__image" />
+
+    <TextView
+            android:id="@+id/view_list_word_item__text_view__word_no_image_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="top"
+            android:layout_marginEnd="15dp"
+            android:layout_marginVertical="10dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingVertical="5dp">
+
+        <RelativeLayout
+                android:id="@+id/view_list_word_item__layout__top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="3dp">
+
+            <TextView
+                    android:id="@+id/view_list_word_item__text_view__word_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/view_list_word_item__text_view__hard_tag"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingVertical="1dp"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+
+            <TextView
+                    android:id="@+id/view_list_word_item__text_view__hard_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toStartOf="@id/view_list_word_item__text_view__archive_tag"
+                    android:background="@drawable/border__hard_word"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="1dp"
+                    android:paddingBottom="5dp"
+                    android:text="@string/fragment_word_list__text_view__hard_tag"
+                    android:textColor="@color/hard_word"
+                    android:textSize="13sp"
+                    android:visibility="gone"
+                    tools:ignore="SmallSp" />
+
+            <TextView
+                    android:id="@+id/view_list_word_item__text_view__archive_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toStartOf="@id/view_list_word_item__text_view__level"
+                    android:background="@drawable/border__thin__gray"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="1dp"
+                    android:paddingBottom="5dp"
+                    android:text="@string/fragment_word_list__text_view__archive_tag"
+                    android:textColor="@color/gray"
+                    android:textSize="13sp"
+                    android:visibility="gone"
+                    tools:ignore="SmallSp" />
+
+            <TextView
+                    android:id="@+id/view_list_word_item__text_view__level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_gravity="end"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="end"
+                    android:maxLines="1"
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="1dp"
+                    android:textSize="13sp"
+                    tools:ignore="SmallSp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_list_word_item__layout__top"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/view_list_word_item__text_view__translation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/view_list_word_item__text_view__tag"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp" />
+
+            <TextView
+                    android:id="@+id/view_list_word_item__text_view__tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/border__word_tag"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="1dp"
+                    android:paddingBottom="5dp"
+                    android:text="@string/fragment_word_list__text_view__hard_tag"
+                    android:textColor="@color/almost_black"
+                    android:textSize="13sp"
+                    android:visibility="gone"
+                    tools:ignore="SmallSp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

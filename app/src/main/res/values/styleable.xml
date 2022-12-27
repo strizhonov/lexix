@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SmoothBottomBar">
+        <attr format="reference" name="menu" />
+        <attr format="color" name="backgroundColor" />
+        <attr format="color" name="indicatorColor" />
+        <attr format="dimension" name="sideMargins" />
+        <attr format="dimension" name="itemPadding" />
+        <attr format="color" name="textColor" />
+        <attr format="reference" name="itemFontFamily" />
+        <attr format="dimension" name="textSize" />
+        <attr format="dimension" name="iconSize" />
+        <attr format="color" name="iconTint" />
+        <attr format="color" name="iconTintActive" />
+        <attr format="integer" name="activeItem" />
+    </declare-styleable>
+    <declare-styleable name="RoundedBarChart">
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="SegmentedProgressBar">
+        <attr name="dividerColor" format="color" />
+        <attr name="progressBarBackgroundColor" format="color" />
+        <attr name="progressBarColor" format="color" />
+        <attr name="dividerWidth" format="dimension" />
+        <attr name="isDividerEnabled" format="boolean" />
+        <attr name="divisions" format="integer" />
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:showIn="navigation_view">
+    <item android:title="@string/list_drawer__group_title">
+        <menu>
+            <item
+                    android:id="@+id/menu_word_list__all_words"
+                    android:icon="@drawable/ic__list_menu"
+                    android:title="@string/fragment_word_list__group_title__all_words" />
+            <item
+                    android:id="@+id/menu_word_list__archived_words"
+                    android:icon="@drawable/ic__archive_menu_24"
+                    android:title="@string/fragment_word_list__group_title__archived_words" />
+            <item
+                    android:id="@+id/menu_word_list__hard_words"
+                    android:icon="@drawable/ic__hard_word"
+                    android:title="@string/fragment_word_list__group_title__hard_words" />
+        </menu>
+    </item>
+    <item android:title="@string/list_drawer__options_title">
+        <menu>
+            <item
+                    android:id="@+id/menu_word_list__clear"
+                    android:icon="@drawable/ic__clear_all"
+                    android:title="@string/list_drawer__item__clear_list" />
+            <item
+                    android:id="@+id/menu_word_list__reset_progress"
+                    android:icon="@drawable/ic__reset_progress"
+                    android:title="@string/list_drawer__item__reset_progress" />
+            <item
+                    android:id="@+id/menu_word_list__restore"
+                    android:icon="@drawable/ic__upload"
+                    android:title="@string/list_drawer__item__add_from_txt" />
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name_content">Lexica</string>
+
+    <string name="tabs__training">Тренировка</string>
+    <string name="tabs__word_list">Слова</string>
+    <string name="tabs__stats">Прогресс</string>
+
+    <string name="lang_de">GE</string>
+    <string name="lang_en">EN</string>
+    <string name="lang_sp">ES</string>
+    <string name="lang_fr">FR</string>
+    <string name="lang_it">IT</string>
+    <string name="lang_pl">PL</string>
+    <string name="lang_por">PT</string>
+    <string name="lang_ru">RU</string>
+    <string name="lang_tur">TR</string>
+
+    <string name="notification_channel_name">Новые слова для тренировки</string>
+    <string name="notification_channel_description">Уведомление происходит, когда достаточное количество слов становятся доступными для тренировки</string>
+    <string name="notification_title_template">Время тренировки!</string>
+    <string name="notification_text_template">%d слов доступно, чтобы потренировать их.</string>
+
+    <string name="activity_main__toast__cant_turn_off_pwr_management">Что-то пошло не так</string>
+    <string name="activity_main__alert_message__allow_turn_off_power_management">Пожалуйста, разрешите Lexica работать в фоновом режиме. Это важно для корректной работы уведомлений.</string>
+
+    <string name="activity_add_word__title">Добавить новое слово</string>
+    <string name="activity_add_word__text_view__new_word_hint">Новое слово</string>
+    <string name="activity_add_word__translation_hint">Перевод</string>
+    <string name="activity_add_word__button__add">Добавить</string>
+    <string name="activity_add_word__toast__check_internet">Не удалось получить доступные языки. Проверьте интернет соединение.</string>
+    <string name="activity_add_word__button__suggest_word">Предложить новое слово</string>
+    <string name="activity_add_word__toast__no_next_word_suggestion">Что-то пошло не так</string>
+
+    <string name="activity_modify_word__title">Редактировать слово</string>
+    <string name="activity_modify_word__button__update">Обновить</string>
+    <string name="activity_modify_word__toast__translation_not_found">Перевод не найден</string>
+    <string name="activity_modify_word__button__unarchive">Разархивировать</string>
+    <string name="activity_modify_word__button__uncheck_as_hard">Убрать отметку "Трудное"</string>
+
+    <string name="activity_training__button__unknown_word">Не знаю</string>
+    <string name="activity_training__button__known_word">Знаю</string>
+    <string name="activity_training__description__modify">Кнопка для редактирования слова</string>
+    <string name="activity_training__description__image">Изображение текущего слова</string>
+    <string name="activity_training__text_view__no_image">Нет изображения</string>
+
+    <string name="fragment_pre_training__text_view__empty_list_message">Словарь пуст</string>
+    <string name="fragment_pre_training__button__start">Готов!</string>
+    <string name="fragment_pre_training__button__start_anyway">Все равно начать тренировку</string>
+    <string name="fragment_pre_training__button__study_to_native_training">C иностранного</string>
+    <string name="fragment_pre_training__button__native_to_study_training">С родного</string>
+    <string name="fragment_pre_training__button__mixed_training">Смешаный тип</string>
+    <string name="fragment_pre_training__text_view__words_to_learn">Слов к тренировке:</string>
+    <string name="fragment_pre_training__text_view__not_time_to_learn">Слов для тренировки пока нет</string>
+
+    <string name="fragment_word_list__search">Поиск</string>
+    <string name="fragment_word_list__toast__unable_to_save_from_file">Загрузка слов из файла не удалась</string>
+    <string name="fragment_word_list__description__add_word">Кнопка добавления нового слова</string>
+    <string name="fragment_word_list__text_view__archive_tag">Архив</string>
+    <string name="fragment_word_list__text_view__hard_tag">Трудное</string>
+    <string name="fragment_word_list__group_title__all_words">Все слова</string>
+    <string name="fragment_word_list__group_title__archived_words">Архивированные</string>
+    <string name="fragment_word_list__group_title__hard_words">Трудные</string>
+    <string name="fragment_word_list__level_abbreviation">ур.</string>
+
+    <string name="fragment_stats__text_view__empty_list_message">Словарь пуст</string>
+    <string name="fragment_stats__text_view__x_axis">Уровень изучения слова</string>
+    <string name="fragment_stats__text_view__y_axis">Количество слов</string>
+
+    <string name="list_drawer__group_title">Категории</string>
+    <string name="list_drawer__options_title">Опции</string>
+    <string name="list_drawer__item__clear_list">Очистить список</string>
+    <string name="list_drawer__item__reset_progress">Сбросить прогресс</string>
+    <string name="list_drawer__item__add_from_txt">Загрузить слова из *.txt</string>
+    <string name="list_drawer__description__open">Открыть меню</string>
+    <string name="list_drawer__description__close">Закрыть меню</string>
+
+    <string name="dialog__content__yes">Да</string>
+    <string name="dialog__content__ok">OK</string>
+    <string name="dialog__content__cancel">Отмена</string>
+    <string name="dialog__content__select_file">Выберите файл для загрузки</string>
+    <string name="dialog__content__rate_me">Оцените Lexica и расскажите, какие у Вас есть идеи для улучшения приложения. Нам важно, что Вы думаете.</string>
+    <string name="dialog__content__reset_progress">Вы хотите сбросить свой прогресс обучения.</string>
+    <string name="dialog__content__separator_message">Какие символы разделяют слово и его перевод?</string>
+    <string name="dialog__content__done">Готово</string>
+    <string name="dialog__content__clear_all">Вы хотите очистить свой список слов</string>
+    <string name="dialog__content__are_you_sure">Вы уверены?</string>
+    <string name="dialog__content__insert_separator">Укажите разделитель</string>
+</resources>

@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/plate__light_0"
+        android:orientation="vertical"
+        android:paddingBottom="15dp"
+        android:paddingStart="15dp"
+        tools:context="com.strizhonovapps.lexicaapp.view.StatsFragment">
+
+    <TextView
+            android:id="@+id/fragment_stats__text_view__no_words_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/fragment_stats__text_view__empty_list_message"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+    <com.strizhonovapps.lexicaapp.viewsupport.RoundedBarChart
+            android:id="@+id/fragment_stats__rounded_bar_chart__main_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="25dp"
+            app:radius="4dp" />
+
+    <TextView
+            android:id="@+id/fragment_stats__text_view__x_axis_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/fragment_stats__text_view__x_axis"
+            android:textSize="12sp" />
+
+    <com.strizhonovapps.lexicaapp.viewsupport.VerticalTextView
+            android:id="@+id/fragment_stats__text_view__y_axis_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="top"
+            android:rotation="180"
+            android:text="@string/fragment_stats__text_view__y_axis"
+            android:textSize="12sp" />
+</FrameLayout>
