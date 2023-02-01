@@ -1,4 +1,4 @@
-Lexica is an android application intended to be an effective foreign languages (but not only) learning tool based on Ebbinghaus forgetting curve.
+Lexix is an android application intended to be an effective foreign languages (but not only) learning tool based on Ebbinghaus forgetting curve.
 
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"
 alt="Get it on Google Play"

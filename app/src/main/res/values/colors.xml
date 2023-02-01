@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--MAIN-->
-    <color name="ic_launcher_background">#4B9BAC</color>
     <color name="primary">#5C7B8A</color>
     <color name="accent">#03A9F4</color>
     <color name="accent_alternative">#F4CC03</color>
@@ -20,7 +19,6 @@
     <color name="word_level__lowest">#85A3B1</color>
     <color name="word_level__middle">#ffc900</color>
     <color name="word_level__advanced">#28C38A</color>
-    <color name="transparent_stub">@android:color/transparent</color>
 
     <!--Other-->
     <color name="hard_word">#BC4242</color>

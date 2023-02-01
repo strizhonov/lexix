@@ -1,41 +1,41 @@
 <resources>
-    <string name="app_name_content">Lexica</string>
+    <string name="app_name_content">Lexix</string>
 
     <string name="tabs__training">Training</string>
     <string name="tabs__word_list">Word List</string>
     <string name="tabs__stats">Statistics</string>
 
-    <string name="lang_de">GE</string>
     <string name="lang_en">EN</string>
-    <string name="lang_sp">ES</string>
-    <string name="lang_fr">FR</string>
-    <string name="lang_it">IT</string>
     <string name="lang_pl">PL</string>
-    <string name="lang_por">PT</string>
     <string name="lang_ru">RU</string>
-    <string name="lang_tur">TR</string>
+
+    <string name="transcription_wrapper">/%1$s/</string>
 
     <string name="notification_channel_name">New words to learn</string>
     <string name="notification_channel_description">Appears when there are enough words are available for learning</string>
     <string name="notification_title_template">It\'s time to learn!</string>
     <string name="notification_text_template">%d words are available for learning.</string>
 
-    <string name="activity_main__toast__cant_turn_off_pwr_management">Smth went wrong</string>
-    <string name="activity_main__alert_message__allow_turn_off_power_management">Please allow Lexica to run in the background. This is important for the application notifications.</string>
-
     <string name="activity_add_word__title">Add a New Word</string>
     <string name="activity_add_word__text_view__new_word_hint">New Word</string>
     <string name="activity_add_word__translation_hint">Translation</string>
     <string name="activity_add_word__button__add">Add</string>
-    <string name="activity_add_word__toast__check_internet">Unable to detect languages. Check you internet connection</string>
     <string name="activity_add_word__button__suggest_word">Suggest a new word</string>
-    <string name="activity_add_word__toast__no_next_word_suggestion">Smth went wrong</string>
+    <string name="activity_add_word__toast__no_next_word_suggestion">Check your internet connection</string>
+    <string name="activity_add_word__radio__all_sides">All</string>
+    <string name="activity_add_word__radio__study_to_native">Study to native</string>
+    <string name="activity_add_word__radio__native_to_study">Native to study</string>
+    <string name="activity_add_word__radio__block_name">Word side to learn</string>
 
     <string name="activity_modify_word__title">Modify Record</string>
     <string name="activity_modify_word__button__update">Update</string>
+    <string name="activity_modify_word__toast__no_input">Insert a word to translate</string>
     <string name="activity_modify_word__toast__translation_not_found">Translation not found</string>
-    <string name="activity_modify_word__button__unarchive">Unarchive</string>
     <string name="activity_modify_word__button__uncheck_as_hard">Uncheck "Hard"</string>
+    <string name="activity_modify_word__radio__all_sides">All</string>
+    <string name="activity_modify_word__radio__study_to_native">Study to native</string>
+    <string name="activity_modify_word__radio__native_to_study">Native to study</string>
+    <string name="activity_modify_word__radio__block_name">Word side to learn</string>
 
     <string name="activity_training__button__unknown_word">Unknown word</string>
     <string name="activity_training__button__known_word">Known word</string>
@@ -51,6 +51,7 @@
     <string name="fragment_pre_training__button__mixed_training">Mixed mode</string>
     <string name="fragment_pre_training__text_view__words_to_learn">Available for training:</string>
     <string name="fragment_pre_training__text_view__not_time_to_learn">No words are ready for now</string>
+    <string name="fragment_pre_training__text_view__words_per_day">Expected words per day</string>
 
     <string name="fragment_word_list__search">Search</string>
     <string name="fragment_word_list__toast__unable_to_save_from_file">Uploading failed</string>
@@ -59,30 +60,39 @@
     <string name="fragment_word_list__text_view__hard_tag">Hard</string>
     <string name="fragment_word_list__group_title__all_words">All words</string>
     <string name="fragment_word_list__group_title__archived_words">Archived words</string>
+    <string name="fragment_word_list__group_title__duplicates">Duplicated words</string>
+    <string name="fragment_word_list__group_title__duplicates_native">Duplicated by translation</string>
     <string name="fragment_word_list__group_title__hard_words">Hard words</string>
     <string name="fragment_word_list__level_abbreviation">lvl</string>
 
     <string name="fragment_stats__text_view__empty_list_message">Word list is empty</string>
-    <string name="fragment_stats__text_view__x_axis">Word Knowledge Level</string>
-    <string name="fragment_stats__text_view__y_axis">Amount Of Words</string>
+
+    <string name="fragment_stats__text_view__level_x_axis">Word Knowledge Level</string>
+    <string name="fragment_stats__text_view__levels_y_axis">Amount Of Words</string>
+    <string name="fragment_stats__text_view__freeze_days_x_axis">Freeze period, days</string>
+    <string name="fragment_stats__text_view__freeze_days_y_axis">Amount Of Words</string>
 
     <string name="list_drawer__group_title">Word categories</string>
     <string name="list_drawer__options_title">Options</string>
     <string name="list_drawer__item__clear_list">Clear list</string>
     <string name="list_drawer__item__reset_progress">Reset progress</string>
     <string name="list_drawer__item__add_from_txt">Upload from *.txt</string>
+    <string name="list_drawer__item__export_to_txt">Download as *.txt</string>
     <string name="list_drawer__description__open">Open drawer</string>
     <string name="list_drawer__description__close">Close drawer</string>
+    <string name="list_drawer__item__export_db">Export database</string>
 
     <string name="dialog__content__yes">Yes</string>
-    <string name="dialog__content__ok">OK</string>
     <string name="dialog__content__cancel">Cancel</string>
     <string name="dialog__content__select_file">Select a file to upload</string>
-    <string name="dialog__content__rate_me">If you enjoy using this app, would you mind taking a moment to rate it? It won\'t take more than a minute. Thanks for your support!</string>
     <string name="dialog__content__reset_progress">You want to reset your learning progress.</string>
     <string name="dialog__content__separator_message">What symbols do divide the word and its translation in your text file?</string>
     <string name="dialog__content__done">Done</string>
     <string name="dialog__content__clear_all">You want to clear your word list</string>
     <string name="dialog__content__are_you_sure">Are you sure?</string>
     <string name="dialog__content__insert_separator">Please, insert a separator</string>
+    <string name="activity_training__button__skip_word">Skip word</string>
+
+
+    <string name="stub">STUB</string>
 </resources>
