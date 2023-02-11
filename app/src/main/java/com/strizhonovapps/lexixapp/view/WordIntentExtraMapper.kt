@@ -1,7 +1,7 @@
 package com.strizhonovapps.lexixapp.view
 
 import android.content.Intent
-import com.strizhonovapps.lexixapp.model.AllowedWordCardSide
+import com.strizhonovapps.lexixapp.model.WordCardSide
 import com.strizhonovapps.lexixapp.model.INITIAL_WORD_LEVEL
 import com.strizhonovapps.lexixapp.model.Word
 import com.strizhonovapps.lexixapp.util.toDate
@@ -40,8 +40,8 @@ class WordIntentExtraMapper(private val intent: Intent) {
             id = intent.getLongExtra(ID_KEY, -1L),
             name = intent.getStringExtra(NAME_KEY),
             translation = intent.getStringExtra(TRANSLATION_KEY),
-            allowedWordCardSide = intent.getSerializableExtra(WORD_CARD_SIDE_KEY) as? AllowedWordCardSide
-                ?: AllowedWordCardSide.ALL,
+            allowedWordCardSide = intent.getSerializableExtra(WORD_CARD_SIDE_KEY) as? WordCardSide
+                ?: WordCardSide.ALL,
             tag = intent.getStringExtra(TAG_KEY),
             timesShown = intent.getLongExtra(TIMES_SHOWN_KEY, 0L),
             isArchived = intent.getBooleanExtra(IS_ARCHIVED_KEY, false),

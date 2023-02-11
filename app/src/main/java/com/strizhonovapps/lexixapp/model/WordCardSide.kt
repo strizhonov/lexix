@@ -1,6 +1,6 @@
 package com.strizhonovapps.lexixapp.model
 
-enum class AllowedWordCardSide {
+enum class WordCardSide {
     STUDY,
     NATIVE,
     ALL,

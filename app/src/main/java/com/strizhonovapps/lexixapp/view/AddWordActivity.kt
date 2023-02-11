@@ -8,7 +8,7 @@ import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.strizhonovapps.lexixapp.R
-import com.strizhonovapps.lexixapp.model.AllowedWordCardSide
+import com.strizhonovapps.lexixapp.model.WordCardSide
 import com.strizhonovapps.lexixapp.model.Word
 import com.strizhonovapps.lexixapp.util.toDate
 import dagger.hilt.android.AndroidEntryPoint
@@ -101,9 +101,9 @@ class AddWordActivity : BaseWordManipulationActivity() {
         val name = nameEditText.text.toString()
         val translation = transEditText.text.toString()
         val sideToShow =
-            if (allWordCardSidesRadio.isChecked) AllowedWordCardSide.ALL
-            else if (nativeToStudyRadio.isChecked) AllowedWordCardSide.NATIVE
-            else AllowedWordCardSide.STUDY
+            if (allWordCardSidesRadio.isChecked) WordCardSide.ALL
+            else if (nativeToStudyRadio.isChecked) WordCardSide.NATIVE
+            else WordCardSide.STUDY
 
         val newWord = Word(
             name = name,

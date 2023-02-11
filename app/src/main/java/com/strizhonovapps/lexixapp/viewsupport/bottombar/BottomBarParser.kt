@@ -34,7 +34,7 @@ class BottomBarParser(private val context: Context, res: Int) {
         }
         return BottomBarItem(
             "  $itemText",
-            itemDrawable ?: throw IllegalStateException("Unable to find icon for bottom bar."),
+            requireNotNull(itemDrawable) { "Unable to find icon for bottom bar." },
             alpha = 0
         )
     }

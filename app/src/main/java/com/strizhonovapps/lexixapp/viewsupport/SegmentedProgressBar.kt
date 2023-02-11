@@ -11,6 +11,7 @@ import android.view.ViewTreeObserver
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import androidx.core.content.ContextCompat
 import com.strizhonovapps.lexixapp.R
+import java.lang.Float.min
 
 class SegmentedProgressBar(context: Context, attrs: AttributeSet?) : View(context, attrs) {
 
@@ -19,14 +20,11 @@ class SegmentedProgressBar(context: Context, attrs: AttributeSet?) : View(contex
     private val progressBarPaint: Paint = Paint()
     private val dividerPaint: Paint = Paint()
 
-    private val dividerWidth: Float
     private val cornerRadius: Float
     private val isDividerEnabled: Boolean
 
-    private val maxDivisions = 50
-    private var shrinkCoef = 1
-
     private var bgRect: RectF? = null
+    private var dividerWidth: Float
     private var progressBarWidth = 0f
     private var divisions = 0
     private var enabledDivisions: List<Int> = ArrayList()
@@ -108,16 +106,19 @@ class SegmentedProgressBar(context: Context, attrs: AttributeSet?) : View(contex
             Log.w(this.javaClass.name, "setDivisions: Number of Divisions cannot be less than 1")
             return
         }
-        if (divisions >= maxDivisions) {
-            shrinkCoef = divisions / maxDivisions
-            this.divisions = maxDivisions
-        } else {
-            this.divisions = divisions
-            shrinkCoef = 1
-        }
+        dividerWidth = getDividerWidth(divisions)
+        this.divisions = divisions
+        if (this.divisions > 50) dividerWidth = 1f
         refreshDividerPositions()
         invalidate()
     }
+
+    private fun getDividerWidth(divisions: Int) =
+        when {
+            divisions > 100 -> 0f
+            divisions > 50 -> min(1f, dividerWidth)
+            else -> dividerWidth
+        }
 
     private fun refreshDividerPositions() {
         dividerPositions.clear()
@@ -131,10 +132,7 @@ class SegmentedProgressBar(context: Context, attrs: AttributeSet?) : View(contex
     fun enableFirstDivisions(count: Int) {
         this.enabledDivisions =
             if (count == 0) emptyList()
-            else (0 until count)
-                .map { idx -> idx.div(shrinkCoef) }
-                .distinct()
-                .toList()
+            else (0 until count).toList()
         invalidate()
     }
 

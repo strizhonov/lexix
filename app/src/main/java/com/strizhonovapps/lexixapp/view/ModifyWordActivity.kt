@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import com.strizhonovapps.lexixapp.R
-import com.strizhonovapps.lexixapp.model.AllowedWordCardSide
+import com.strizhonovapps.lexixapp.model.WordCardSide
 import com.strizhonovapps.lexixapp.model.Word
 import com.strizhonovapps.lexixapp.service.WordServiceImpl.WordAddon.isHard
 import dagger.hilt.android.AndroidEntryPoint
@@ -40,9 +40,9 @@ class ModifyWordActivity : BaseWordManipulationActivity() {
         transEditText.setText(word.translation)
 
         when (word.allowedWordCardSide) {
-            AllowedWordCardSide.ALL -> allWordCardSidesRadio.isChecked = true
-            AllowedWordCardSide.STUDY -> studyToNativeRadio.isChecked = true
-            AllowedWordCardSide.NATIVE -> nativeToStudyRadio.isChecked = true
+            WordCardSide.ALL -> allWordCardSidesRadio.isChecked = true
+            WordCardSide.STUDY -> studyToNativeRadio.isChecked = true
+            WordCardSide.NATIVE -> nativeToStudyRadio.isChecked = true
         }
 
         prepareArchiveButtons(word.isArchived)
@@ -111,9 +111,9 @@ class ModifyWordActivity : BaseWordManipulationActivity() {
         word.name = nameEditText.text.toString()
         word.translation = transEditText.text.toString()
         word.allowedWordCardSide =
-            if (allWordCardSidesRadio.isChecked) AllowedWordCardSide.ALL
-            else if (nativeToStudyRadio.isChecked) AllowedWordCardSide.NATIVE
-            else AllowedWordCardSide.STUDY
+            if (allWordCardSidesRadio.isChecked) WordCardSide.ALL
+            else if (nativeToStudyRadio.isChecked) WordCardSide.NATIVE
+            else WordCardSide.STUDY
         wordService.update(word)
     }
 }

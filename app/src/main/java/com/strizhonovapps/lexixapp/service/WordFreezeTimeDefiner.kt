@@ -7,24 +7,22 @@ import java.util.SortedSet
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.math.pow
 
 @Singleton
 class WordFreezeTimeDefiner @Inject constructor() {
 
-    val baseIncreaseCoef = 1.5
+    val levelToBaseIncreaseFn: (Int) -> Double = { it.toDouble().pow(1.4) }
     private val random = Random()
     private val wordsPerDayThreshold = 170
 
     fun define(newLevel: Int, wordsTargetDates: List<LocalDateTime>): Long {
-        val levelBasedKnowledgeCoef = newLevel
+        val baseMsDelay = levelToBaseIncreaseFn(newLevel)
             .times(TimeUnit.DAYS.toMillis(1))
-            .toDouble()
-            .times(baseIncreaseCoef)
             .toLong()
-
         val baseFreezeTimeMs = shiftFreezeTimeIfThereAreLotOfWordsAtThatPeriod(
             wordsTargetDates,
-            levelBasedKnowledgeCoef
+            baseMsDelay
         )
         return baseFreezeTimeMs + randomDelta(baseFreezeTimeMs)
     }

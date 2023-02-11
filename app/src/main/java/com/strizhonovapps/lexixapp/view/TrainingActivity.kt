@@ -13,9 +13,9 @@ import androidx.activity.ComponentActivity
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import com.strizhonovapps.lexixapp.R
-import com.strizhonovapps.lexixapp.model.AllowedWordCardSide
 import com.strizhonovapps.lexixapp.model.TrainingType
 import com.strizhonovapps.lexixapp.model.Word
+import com.strizhonovapps.lexixapp.model.WordCardSide
 import com.strizhonovapps.lexixapp.service.ImageService
 import com.strizhonovapps.lexixapp.service.LevelColorDefiner
 import com.strizhonovapps.lexixapp.service.WordService
@@ -73,6 +73,7 @@ class TrainingActivity : ComponentActivity(), View.OnClickListener {
     private var currentWord: Word? = null
 
     private var trainingType: TrainingType? = null
+    private var latestWordSideToShow: WordCardSide? = null
 
     private var activeWords = 0
     private var sessionWords = 0
@@ -122,6 +123,7 @@ class TrainingActivity : ComponentActivity(), View.OnClickListener {
                 CoroutineScope(Dispatchers.Default).launch {
                     wordService.processKnown(word)
                 }
+                latestWordSideToShow = null
                 sessionWords = sessionWords.inc()
                 refreshView(word)
                 if (activeWords == 0) updateLastSessionEnd()
@@ -131,6 +133,7 @@ class TrainingActivity : ComponentActivity(), View.OnClickListener {
                 CoroutineScope(Dispatchers.Default).launch {
                     wordService.processUnknown(word)
                 }
+                latestWordSideToShow = null
                 vibrator.vibrate(25)
                 sessionWords = sessionWords.inc()
                 refreshView(word)
@@ -141,6 +144,7 @@ class TrainingActivity : ComponentActivity(), View.OnClickListener {
                 CoroutineScope(Dispatchers.Default).launch {
                     wordService.skipWord(word)
                 }
+                latestWordSideToShow = null
                 sessionWords = sessionWords.inc()
                 refreshView(word)
                 if (activeWords == 0) updateLastSessionEnd()
@@ -209,14 +213,17 @@ class TrainingActivity : ComponentActivity(), View.OnClickListener {
         showButton?.setImageResource(R.drawable.ic__visibility)
         wordNativeTextView?.visibility = View.INVISIBLE
 
-        val wordSideToShow = defineWordSideToShow(word.allowedWordCardSide)
-        when (wordSideToShow) {
-            AllowedWordCardSide.NATIVE -> {
+        if (latestWordSideToShow == null) {
+            latestWordSideToShow = defineWordSideToShow(word.allowedWordCardSide)
+        }
+        val wordSideToShow = requireNotNull(latestWordSideToShow) { "Unassigned word side" }
+        when (latestWordSideToShow) {
+            WordCardSide.NATIVE -> {
                 wordNativeTextView?.text = word.name
                 wordStudyTextView?.text = word.translation
             }
 
-            AllowedWordCardSide.STUDY -> {
+            WordCardSide.STUDY -> {
                 wordStudyTextView?.text = word.name
                 wordNativeTextView?.text = word.translation
             }
@@ -232,28 +239,28 @@ class TrainingActivity : ComponentActivity(), View.OnClickListener {
         setLevelView(word)
     }
 
-    private fun defineWordSideToShow(allowedWordCardSide: AllowedWordCardSide): AllowedWordCardSide {
+    private fun defineWordSideToShow(allowedWordCardSide: WordCardSide): WordCardSide {
         val wordSideToShow = when (trainingType) {
             TrainingType.MIXED -> {
-                if (allowedWordCardSide == AllowedWordCardSide.STUDY) AllowedWordCardSide.STUDY
-                else if (allowedWordCardSide == AllowedWordCardSide.NATIVE) AllowedWordCardSide.NATIVE
-                else if (Random().nextBoolean()) AllowedWordCardSide.NATIVE
-                else AllowedWordCardSide.STUDY
+                if (allowedWordCardSide == WordCardSide.STUDY) WordCardSide.STUDY
+                else if (allowedWordCardSide == WordCardSide.NATIVE) WordCardSide.NATIVE
+                else if (Random().nextBoolean()) WordCardSide.NATIVE
+                else WordCardSide.STUDY
             }
 
-            TrainingType.NATIVE_TO_STUDY -> AllowedWordCardSide.NATIVE
-            TrainingType.STUDY_TO_NATIVE -> AllowedWordCardSide.STUDY
+            TrainingType.NATIVE_TO_STUDY -> WordCardSide.NATIVE
+            TrainingType.STUDY_TO_NATIVE -> WordCardSide.STUDY
             else -> throw IllegalStateException("Illegal training type $trainingType")
         }
         return wordSideToShow
     }
 
-    private fun setWordSideView(allowedWordCardSide: AllowedWordCardSide) {
-        if (allowedWordCardSide != AllowedWordCardSide.ALL) {
+    private fun setWordSideView(allowedWordCardSide: WordCardSide) {
+        if (allowedWordCardSide != WordCardSide.ALL) {
             wordSideImageView?.visibility = View.VISIBLE
             val res = when (allowedWordCardSide) {
-                AllowedWordCardSide.NATIVE -> R.drawable.baseline_arrow_upward_24
-                AllowedWordCardSide.STUDY -> R.drawable.baseline_arrow_downward_24
+                WordCardSide.NATIVE -> R.drawable.baseline_arrow_upward_24
+                WordCardSide.STUDY -> R.drawable.baseline_arrow_downward_24
                 else -> throw IllegalStateException()
             }
             wordSideImageView?.setImageResource(res)
@@ -271,8 +278,8 @@ class TrainingActivity : ComponentActivity(), View.OnClickListener {
         }
     }
 
-    private fun setTranscription(transcription: String?, wordSide: AllowedWordCardSide) {
-        if (transcription.isNullOrBlank() || wordSide == AllowedWordCardSide.NATIVE) {
+    private fun setTranscription(transcription: String?, wordSide: WordCardSide) {
+        if (transcription.isNullOrBlank() || wordSide == WordCardSide.NATIVE) {
             transcriptionTextView?.visibility = View.GONE
         } else {
             transcriptionTextView?.visibility = View.VISIBLE
@@ -280,9 +287,9 @@ class TrainingActivity : ComponentActivity(), View.OnClickListener {
         }
     }
 
-    private fun setAudioButton(wordSideToShow: AllowedWordCardSide, url: String?) {
+    private fun setAudioButton(wordSideToShow: WordCardSide, url: String?) {
         wordAudioButton?.apply {
-            if (wordSideToShow == AllowedWordCardSide.NATIVE || url.isNullOrBlank()) {
+            if (wordSideToShow == WordCardSide.NATIVE || url.isNullOrBlank()) {
                 setOnClickListener { }
                 setImageResource(R.drawable.ic__play_inactive)
             } else {

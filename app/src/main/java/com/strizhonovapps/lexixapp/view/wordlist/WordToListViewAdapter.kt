@@ -10,8 +10,8 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import com.strizhonovapps.lexixapp.R
-import com.strizhonovapps.lexixapp.model.AllowedWordCardSide
 import com.strizhonovapps.lexixapp.model.Word
+import com.strizhonovapps.lexixapp.model.WordCardSide
 import com.strizhonovapps.lexixapp.service.ImageService
 import com.strizhonovapps.lexixapp.service.LevelColorDefiner
 import com.strizhonovapps.lexixapp.service.WordServiceImpl.WordAddon.isHard
@@ -73,17 +73,18 @@ class WordToListViewAdapter constructor(
     }
 
     private fun setAllowedWordSide(current: Word, viewHolder: ViewHolder) {
-        if (current.allowedWordCardSide != AllowedWordCardSide.ALL) {
-            viewHolder.side?.visibility = View.VISIBLE
-            val res = when (current.allowedWordCardSide) {
-                AllowedWordCardSide.ALL -> throw IllegalStateException()
-                AllowedWordCardSide.NATIVE -> R.drawable.baseline_arrow_upward_24
-                AllowedWordCardSide.STUDY -> R.drawable.baseline_arrow_downward_24
-            }
-            viewHolder.side?.setImageResource(res)
-        } else {
+        if (current.allowedWordCardSide == WordCardSide.ALL) {
             viewHolder.side?.visibility = View.GONE
+            return
         }
+
+        viewHolder.side?.visibility = View.VISIBLE
+        val res = when (current.allowedWordCardSide) {
+            WordCardSide.NATIVE -> R.drawable.baseline_arrow_upward_24
+            WordCardSide.STUDY -> R.drawable.baseline_arrow_downward_24
+            WordCardSide.ALL -> throw IllegalStateException("No resource for ALL word side")
+        }
+        viewHolder.side?.setImageResource(res)
     }
 
     private fun setTag(viewHolder: ViewHolder, current: Word) {

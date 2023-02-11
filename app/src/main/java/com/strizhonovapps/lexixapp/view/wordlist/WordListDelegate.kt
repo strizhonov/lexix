@@ -286,7 +286,7 @@ class WordListDelegate @Inject constructor() {
 
     private fun showFileUploadingDialogOrToast(data: Intent) {
         try {
-            showUploadingDialog(data.data ?: throw IllegalStateException("File not uploaded"))
+            showUploadingDialog(requireNotNull(data.data) { "File not uploaded" })
         } catch (e: Exception) {
             Log.e(this.javaClass.simpleName, "Unable to save words from file.", e)
             Toast.makeText(

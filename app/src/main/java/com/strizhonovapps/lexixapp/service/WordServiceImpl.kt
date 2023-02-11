@@ -4,12 +4,12 @@ import com.strizhonovapps.lexixapp.dao.WordDao
 import com.strizhonovapps.lexixapp.dao.WordDaoFilter
 import com.strizhonovapps.lexixapp.dao.allActive
 import com.strizhonovapps.lexixapp.dao.allAvailable
-import com.strizhonovapps.lexixapp.model.AllowedWordCardSide
 import com.strizhonovapps.lexixapp.model.HARD_LEVEL_COEF
 import com.strizhonovapps.lexixapp.model.INITIAL_WORD_LEVEL
 import com.strizhonovapps.lexixapp.model.SupportedLanguage
 import com.strizhonovapps.lexixapp.model.TrainingType
 import com.strizhonovapps.lexixapp.model.Word
+import com.strizhonovapps.lexixapp.model.WordCardSide
 import com.strizhonovapps.lexixapp.view.wordlist.WordsBatch
 import java.io.InputStream
 import java.time.LocalDateTime
@@ -177,7 +177,7 @@ class WordServiceImpl @Inject constructor(
     private fun getAverageExpectedWordsPerDay(availableWords: List<Word>): Int =
         availableWords
             .map { word ->
-                (1).div(word.level.times(freezeTimeDefiner.baseIncreaseCoef))
+                (1).div(freezeTimeDefiner.levelToBaseIncreaseFn(word.level))
             }
             .reduceOrNull { a, b -> a + b }
             ?.roundToInt()
@@ -210,12 +210,12 @@ class WordServiceImpl @Inject constructor(
 
     private fun doesTrainingTypeFitAllowedWordSide(
         trainingType: TrainingType,
-        allowedWordCardSide: AllowedWordCardSide
+        allowedWordCardSide: WordCardSide
     ): Boolean {
         val listOfAllowedTrainings = when (allowedWordCardSide) {
-            AllowedWordCardSide.STUDY -> listOf(TrainingType.STUDY_TO_NATIVE, TrainingType.MIXED)
-            AllowedWordCardSide.NATIVE -> listOf(TrainingType.NATIVE_TO_STUDY, TrainingType.MIXED)
-            AllowedWordCardSide.ALL -> TrainingType.values().toList()
+            WordCardSide.STUDY -> listOf(TrainingType.STUDY_TO_NATIVE, TrainingType.MIXED)
+            WordCardSide.NATIVE -> listOf(TrainingType.NATIVE_TO_STUDY, TrainingType.MIXED)
+            WordCardSide.ALL -> TrainingType.values().toList()
         }
         return listOfAllowedTrainings.contains(trainingType)
     }

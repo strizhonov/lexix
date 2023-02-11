@@ -51,7 +51,7 @@ data class Word(
     @Column(name = WORD_TRANSCRIPTION_FIELD)
     var transcription: String? = null,
     @Column(name = WORD_SIDES_TO_SHOW_FIELD)
-    var allowedWordCardSide: AllowedWordCardSide = AllowedWordCardSide.ALL
+    var allowedWordCardSide: WordCardSide = WordCardSide.ALL
 ) : SugarRecord() {
 
     fun getTargetDate(): LocalDateTime {
